@@ -1,0 +1,39 @@
+<mat-toolbar color ="primary">
+    <mat-toolbar-row fxLayoutAlign="start center">
+        <div fxLayout = "row">
+            <a href="/homes" routerLinkActive="active" ariaCurrentWhenActive="page">
+            <button mat-button>
+                <mat-icon>home</mat-icon>
+                <span class="logo">
+                    Car Service
+                </span>
+            </button>
+            </a>
+            <div *ngIf ="!deviceXs">
+                <!-- Routing, when you click them, open the other component -->
+                <a routerLink="/available-cars" routerLinkActive="active" ariaCurrentWhenActive="page"><button mat-button ><mat-icon>menu_open</mat-icon>  <span>Rent a Car</span></button></a>  
+                <a routerLink="/search-cars" routerLinkActive="active" ariaCurrentWhenActive="page"><button mat-button ><mat-icon>add</mat-icon>  <span>Pull Up search</span></button></a>
+
+                
+            </div>
+        </div>
+
+    </mat-toolbar-row>
+    <!-- Shows second row if deviceXs is true -->
+    <mat-toolbar-row *ngIf="deviceXs" fxLayoutAlign="space-between end">
+        <div>
+            <button mat-button>
+                <mat-icon>menu_open</mat-icon>
+                <span>
+                    Rent a Car
+                </span>
+            </button>
+            <button mat-button>
+                <span>
+                   Rental Descriptions
+                </span>
+            </button>
+        </div>
+    </mat-toolbar-row>
+
+</mat-toolbar>
