@@ -1,7 +1,22 @@
 .container{
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: row;justify-content: space-evenly;
+    width: fit-content;
+    height: fit-content;
+    column-gap: 40px;
     
+}
+.item{
+    display: flex;
+    flex-grow: 1;
+    width: fit-content;
+    height: fit-content;
+    margin-left: 40px;
+    margin-top: 100px;
+}
+.item2{
+    display: flex;
+    width: fit-content;
+    flex-grow: 2;
 }

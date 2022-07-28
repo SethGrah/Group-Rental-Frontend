@@ -4,6 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FindAvailableCarsComponent } from './find-available-cars/find-available-cars.component';
+import {CardModule} from 'primeng/card';
 
 import {AccordionModule} from 'primeng/accordion';     //accordion and accordion tab
 import {MenuItem} from 'primeng/api';      
@@ -26,7 +27,8 @@ import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { HomePageComponent } from './home-page/home-page.component';
 import {CheckboxModule} from 'primeng/checkbox';
-
+import { SidebarComponent } from './sidebar/sidebar.component';
+import {CarouselModule} from 'primeng/carousel';
 const routes: Routes=[{path:'available-cars',component:FindAvailableCarsComponent},
                       {path:'search-cars',component:SearchBarComponent},
                       {path:'homes',component:HomePageComponent}];
@@ -38,6 +40,7 @@ const routes: Routes=[{path:'available-cars',component:FindAvailableCarsComponen
     FindAvailableCarsComponent,
     SearchBarComponent,
     HomePageComponent,
+    SidebarComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,8 +54,9 @@ const routes: Routes=[{path:'available-cars',component:FindAvailableCarsComponen
     MatFormFieldModule,
     FormsModule,ReactiveFormsModule,
     CheckboxModule,
-    AccordionModule,
-    RouterModule.forRoot(routes),MatDatepickerModule,MatNativeDateModule
+    AccordionModule,CardModule,
+    RouterModule.forRoot(routes),MatDatepickerModule,MatNativeDateModule,
+    CarouselModule
 
     
   ],

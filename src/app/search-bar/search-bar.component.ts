@@ -13,6 +13,7 @@ export class SearchBarComponent implements OnInit {
   form: FormGroup;
   constructor( private fb: FormBuilder,service: CarsApiService) {
     this.service = service;
+    this.form=this.fb.group({});
   }
 
   ngOnInit(): void {
