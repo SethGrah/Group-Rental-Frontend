@@ -8,30 +8,30 @@ import { environment } from 'src/environments/environment';
 })
 export class CarsApiService {
 
-  constructor(){}
-  // http: HttpClient;
-  // constructor(http: HttpClient) {
-  //   this.http=http;
-  //  }
-  //  findAllCars() :Observable<any>{
-  //   return this.http.get(environment.apiUrl);
-  // }
-  // findCarByCapacity(capacity:number):Observable<any>{
-  //   return this.http.get(environment.apiUrl + capacity);
-  // }
-  // findCarByMake(make: string): Observable<any>{
-  //   return this.http.get(environment.apiUrl+make);
-  // }
-  // findAvailableReservations(search:any): Observable<any>{
-  //   return this.http.get(environment.apiUrl,search);
-  // }
-  // saveNewReservation(reservation:any):Observable<any>{
-  //   return this.http.post(environment.apiUrl,reservation);
-  // }
-  // updateReservation(reservation:any,resId:number):Observable<any>{
-  //   return this.http.put(environment.apiUrl+resId,reservation)
-  // }
-  // deleteReservation(id:number):Observable<any>{
-  //   return this.http.delete(environment.apiUrl+id);
-  // }
+  http: HttpClient;
+  constructor(http: HttpClient) {
+    this.http=http;
+   }
+   findAllCars() :Observable<any>{
+    return this.http.get(environment.apiUrl+"cars");
+  }
+  findCarByCapacity(capacity:number):Observable<any>{
+    return this.http.get(environment.apiUrl + capacity);
+  }
+  findCarByLicence(license:string):Observable<any>{
+    return this.http.get(environment.apiUrl + license);
+  }
+  findAvailableReservations(search:any): Observable<any>{
+    return this.http.get(environment.apiUrl,search);
+  }
+  saveNewReservation(reservation:any):Observable<any>{
+    return this.http.post(environment.apiUrl,reservation);
+  }
+  updateReservation(reservation:any,resId:number):Observable<any>{
+    return this.http.put(environment.apiUrl+resId,reservation)
+  }
+  deleteReservation(id:number):Observable<any>{
+    return this.http.delete(environment.apiUrl+id);
+  }
+  //delete user?
 }

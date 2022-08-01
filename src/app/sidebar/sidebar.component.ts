@@ -9,7 +9,7 @@ import { Car } from '../models/car';
 })
 export class SidebarComponent implements OnInit {
 
-  cars:Car[]=[{'license':"1",'capacity':1,'make':'3','model':"sf",'year':1}];
+  cars:Array<any>=[];
   service:CarsApiService
   responsiveOptions;
   constructor(service: CarsApiService) { 
@@ -34,8 +34,8 @@ export class SidebarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.service.getCarId().subscribe(data=>{this.cars=data});
-    this.cars=[];
+    this.service.findAllCars().subscribe(data=>
+      this.cars = data);
   }
 
 }

@@ -1,8 +1,15 @@
 <p-card>
         <ng-template pTemplate="header">
-            Header content here
+           <strong>See our options!</strong>
         </ng-template>
-        Body Content
+        <div *ngFor="let car of cars">
+            <h2>{{car.make}} {{car.model}}</h2>
+            <p><strong>Capacity:</strong> {{car.capacity}}</p>
+        </div>
+
+
+
+
         <ng-template pTemplate="footer">
             Footer content here
         </ng-template>
