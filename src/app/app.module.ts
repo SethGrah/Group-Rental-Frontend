@@ -29,9 +29,11 @@ import {CarouselModule} from 'primeng/carousel';
 import {ImageModule} from 'primeng/image';
 import {InputTextModule} from 'primeng/inputtext';
 import {CalendarModule} from 'primeng/calendar';
+import { SearchYourReservationsComponent } from './search-your-reservations/search-your-reservations.component';
 const routes: Routes=[{path:'available-cars',component:FindAvailableCarsComponent},
                       {path:'search-cars',component:SearchBarComponent},
-                      {path:'homes',component:HomePageComponent}];
+                      {path:'homes',component:HomePageComponent},
+                      {path:'my-reservations',component:SearchYourReservationsComponent}];
 
 @NgModule({
   declarations: [
@@ -41,6 +43,7 @@ const routes: Routes=[{path:'available-cars',component:FindAvailableCarsComponen
     SearchBarComponent,
     HomePageComponent,
     SidebarComponent,
+    SearchYourReservationsComponent,
   ],
   imports: [
     BrowserModule,
