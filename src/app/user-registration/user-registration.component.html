@@ -1,0 +1,26 @@
+<mat-card class="new-user" fxLayoutAlign="center center">
+    <mat-card-content>
+        <form class="user-form" #createForm=ngForm (ngSubmit)="Submit()">
+            <mat-card-title>Create an account</mat-card-title>
+            <mat-form-field appearance="fill">
+                <mat-label>Name</mat-label>
+                <input type="text" matInput placeholder="Your Name" formGroupName="name">
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Phone</mat-label>
+                <input type="tel" matInput placeholder="123-456-7890" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" formGroupName="phone">
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Date of Birth</mat-label>
+                <input type="date" matInput formGroupName="dob">
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Email</mat-label>
+                <input type="email" matInput placeholder="scarter@skillstorm.com" formGroupName="email">
+            </mat-form-field>
+        </form>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-raised-button type="submit" color="primary">Submit</button>
+    </mat-card-actions>
+</mat-card>

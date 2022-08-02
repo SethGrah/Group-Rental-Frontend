@@ -16,7 +16,7 @@ import {TableModule} from 'primeng/table';
 import {MatButtonModule} from '@angular/material/button'
 import {MatIconModule} from '@angular/material/icon'
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { Routes,RouterModule } from '@angular/router';
+import { Routes,RouterModule } from '@angular/router'
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
@@ -29,9 +29,11 @@ import {CarouselModule} from 'primeng/carousel';
 import {ImageModule} from 'primeng/image';
 import {InputTextModule} from 'primeng/inputtext';
 import {CalendarModule} from 'primeng/calendar';
+import { UserRegistrationComponent } from './user-registration/user-registration.component';
 const routes: Routes=[{path:'available-cars',component:FindAvailableCarsComponent},
                       {path:'search-cars',component:SearchBarComponent},
-                      {path:'homes',component:HomePageComponent}];
+                      {path:'homes',component:HomePageComponent},
+                      {path:'create-user', component:UserRegistrationComponent}];
 
 @NgModule({
   declarations: [
@@ -41,6 +43,7 @@ const routes: Routes=[{path:'available-cars',component:FindAvailableCarsComponen
     SearchBarComponent,
     HomePageComponent,
     SidebarComponent,
+    UserRegistrationComponent,
   ],
   imports: [
     BrowserModule,
