@@ -24,6 +24,12 @@ export class CarsApiService {
   findAvailableReservations(search:any): Observable<any>{
     return this.http.get(environment.apiUrl,search);
   }
+  findMyReservationsByEmail(email:string):Observable<any>{
+    return this.http.get(environment.apiUrl+"reservations/"+email)
+  }
+  findMyReservationsByUserId(user:number):Observable<any>{
+    return this.http.get(environment.apiUrl+"reservations/"+user)
+  }
   saveNewReservation(reservation:any):Observable<any>{
     return this.http.post(environment.apiUrl,reservation);
   }
