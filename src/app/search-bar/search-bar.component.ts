@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Form, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { CarsApiService } from '../cars-api.service';
 import { Car } from '../models/car';
+import { DatePipe } from '@angular/common';
+import { reservationSearch } from '../models/reservationSearch';
 
 @Component({
   selector: 'app-search-bar',
@@ -10,22 +12,29 @@ import { Car } from '../models/car';
 })
 export class SearchBarComponent implements OnInit {
   service: CarsApiService;
-  form: FormGroup;
-  constructor( private fb: FormBuilder,service: CarsApiService) {
+  reservationSearch: reservationSearch=new reservationSearch(0,new Date,new Date);
+  shown:boolean = false;
+  @Input() availCars : Array<any>=[]
+  constructor( service: CarsApiService,public datepipe:DatePipe) {
     this.service = service;
-    this.form=this.fb.group({});
+    
   }
 
   ngOnInit(): void {
-    this.form = this.fb.group({
-      daterange: new FormGroup({
-        start: new FormControl(),
-        end: new FormControl()
-      }),
-    })
+    this.reservationSearch.size=0;
+    this.reservationSearch.startDate=new Date();
+    this.reservationSearch.endDate =new Date();
   }
   onSubmit(): void {
-    console.log("Searching..." + this.form.value.daterange);
-    // this.save(this.)
+    const start=  this.datepipe.transform(this.reservationSearch.startDate,"yyyyMMdd");
+    console.log(start)
+
+    console.log("Searching..." + this.reservationSearch.startDate);
+
+    this.service.findAvailableReservations(reservationSearch).subscribe(data=>{
+      console.log(data);
+      this.availCars=data;
+    })
+    this.shown=!this.shown
   }
 }

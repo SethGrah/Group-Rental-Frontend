@@ -12,6 +12,7 @@ export class SearchYourReservationsComponent implements OnInit {
 
   service: CarsApiService;
   searchItem:any;
+  searchItemEmail:any;
   //{rId:1,license:"AAA-111",uId:1,r_start:"",r_end:""}
   reservations:reservation[]=[];
   shown:boolean=false;
@@ -30,7 +31,7 @@ export class SearchYourReservationsComponent implements OnInit {
   searchDbById():void{
     this.service.findMyReservationsByUserId(this.searchItem).subscribe(data=>{
       console.log(data);
-      this.reservation =data;
+      this.reservations =data;
     })
   }
   isShown():void{
@@ -39,11 +40,22 @@ export class SearchYourReservationsComponent implements OnInit {
   onClick():void{
     console.log("madeithere"+this.searchItem)
     if(this.searchItem!="" && this.searchItem!=null){
+      this.service.findMyReservationsByUserId(this.searchItem).subscribe(data=>{
+        this.reservations=data;
+      });
+      this.isShown();
+    }
+  }
+  onClickEmail():void{
+    console.log("madeithere"+this.searchItem)
+    if(this.searchItemEmail!="" && this.searchItemEmail!=null){
     //   if(this.searchItem instanceof String){
     //   this.searchDbByEmail();
     //   this.isShown();}
     // }else{
-      this.searchDbById();
+      this.service.findMyReservationsByEmail({"email":this.searchDbByEmail}).subscribe(data=>{
+        this.reservations=data;
+      });
       this.isShown();
     }
   }

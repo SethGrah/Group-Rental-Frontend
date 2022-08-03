@@ -22,10 +22,10 @@ export class CarsApiService {
     return this.http.get(environment.apiUrl + license);
   }
   findAvailableReservations(search:any): Observable<any>{
-    return this.http.get(environment.apiUrl,search);
+    return this.http.get(environment.apiUrl+"reservations/cars/",search);
   }
-  findMyReservationsByEmail(email:string):Observable<any>{
-    return this.http.get(environment.apiUrl+"reservations/"+email)
+  findMyReservationsByEmail(email:any):Observable<any>{
+    return this.http.get(environment.apiUrl+"reservations/user/",email)
   }
   findMyReservationsByUserId(user:number):Observable<any>{
     return this.http.get(environment.apiUrl+"reservations/"+user)

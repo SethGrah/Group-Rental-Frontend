@@ -31,6 +31,7 @@ import {InputTextModule} from 'primeng/inputtext';
 import {CalendarModule} from 'primeng/calendar';
 import { UserRegistrationComponent } from './user-registration/user-registration.component';
 import { SearchYourReservationsComponent } from './search-your-reservations/search-your-reservations.component';
+import { DatePipe } from '@angular/common'
 const routes: Routes=[{path:'available-cars',component:FindAvailableCarsComponent},
                       {path:'search-cars',component:SearchBarComponent},
                       {path:'homes',component:HomePageComponent},
@@ -68,7 +69,7 @@ const routes: Routes=[{path:'available-cars',component:FindAvailableCarsComponen
 
     
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
