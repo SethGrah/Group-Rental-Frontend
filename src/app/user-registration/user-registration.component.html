@@ -1,10 +1,13 @@
 <mat-card class="new-user" fxLayoutAlign="center center">
     <mat-card-content>
-        <form class="user-form" #createForm=ngForm (ngSubmit)="Submit()">
+        <form class="user-form" #createForm=ngForm [formGroup]="form" (click)="Submit()">
             <mat-card-title>Create an account</mat-card-title>
             <mat-form-field appearance="fill">
                 <mat-label>Name</mat-label>
-                <input type="text" matInput placeholder="Your Name" formGroupName="name">
+                <input type="text" matInput placeholder="Your Name" formControlName="name" required>
+                <mat-error *ngIf="name.required">
+
+                </mat-error>
             </mat-form-field>
             <mat-form-field appearance="fill">
                 <mat-label>Phone</mat-label>
