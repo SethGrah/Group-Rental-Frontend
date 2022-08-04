@@ -11,6 +11,11 @@ import { user } from '../models/user';
 export class UserRegistrationComponent implements OnInit {
   service: CarsApiService;
   form: FormGroup;
+  name = new FormControl('', [Validators.required]);
+  phone = new FormControl('', [Validators.required]);
+  dob = new FormControl('', [Validators.required]);
+  email = new FormControl('', [Validators.required]);
+
   nUser: user;
 
   constructor(private fb: FormBuilder, service: CarsApiService, nUser: user) {
@@ -21,18 +26,10 @@ export class UserRegistrationComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      name: new FormControl('', [
-        Validators.required,
-      ]),
-      phone: new FormControl(this.nUser.phone, [
-        Validators.required
-      ]),
-      dob: new FormControl(this.nUser.dob, [
-        Validators.required
-      ]),
-      email: new FormControl(this.nUser.email, [
-        Validators.required
-      ])
+      name: this.name,
+      phone: this.phone,
+      dob: this.dob,
+      email: this.email
     })
   }
 
