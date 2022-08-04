@@ -18,6 +18,9 @@ export class UserRegistrationComponent implements OnInit {
 
   nUser: user;
 
+  today = new Date();
+  minAge = new Date(this.today.getFullYear() - 25, this.today.getMonth(), this.today.getDay());  
+
   constructor(private fb: FormBuilder, service: CarsApiService, nUser: user) {
     this.service = service;
     this.form = this.fb.group({});
