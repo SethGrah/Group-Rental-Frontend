@@ -6,7 +6,5 @@ body {
 
 .background-image{
     background-image: url('./app/Images/new-car-stock-photos.jpg');
-}
-.sizing{
-    height:5000px;
+    background-size: 100%; 
 }

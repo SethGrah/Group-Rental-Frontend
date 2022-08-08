@@ -1,9 +1,10 @@
 <p-card>
         <ng-template pTemplate="header">
-           <strong>See our options!</strong>
+          <h1 style="padding-left: 20px;padding-top:16px;padding-right: 16px;"><strong>See some of our options!</strong></h1> 
         </ng-template>
-        <div *ngFor="let car of cars">
-            <h2>{{car.make}} {{car.model}}</h2>
+        <div class="car-block" *ngFor="let car of cars">
+            <h2 style="text-transform:uppercase;">{{car.make}} {{car.model}}</h2>
+            <p><strong>License:</strong> {{car.license}}</p>
             <p><strong>Capacity:</strong> {{car.capacity}}</p>
             
         </div>
@@ -11,7 +12,7 @@
 
 
 
-        <ng-template pTemplate="footer">
+        <!-- <ng-template pTemplate="footer">
             Footer content here
-        </ng-template>
+        </ng-template> -->
 </p-card>

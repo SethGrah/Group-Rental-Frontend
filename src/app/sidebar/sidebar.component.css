@@ -1,0 +1,6 @@
+.car-block{
+    outline-style: ridge;
+    outline-color: darkblue;
+    padding: 16px;
+    margin-bottom: 16px;
+}

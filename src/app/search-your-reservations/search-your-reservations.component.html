@@ -1,13 +1,12 @@
 <p-card>
     <ng-template pTemplate="header">
-        <h2><strong>Search for your reservation!</strong></h2>
-        <span class="p-float-label">
-            <input type="text" id="inputtext" pInputText [(ngModel)]="searchItem">
-            <label for="inputtext">ID</label>
-        </span>
-        <button type="button" pButton label="Submit" class="button" (click)="onClick()"></button>
+        <h1 style="font-size:xx-large ; padding-top:16px; padding-left:16px;"><strong>Search for your reservation!</strong></h1>
     </ng-template>
-
+    <span class="p-float-label">
+        <input type="text" id="inputtext" pInputText [(ngModel)]="searchItem">
+        <label for="inputtext">Reservation ID</label>
+    </span>
+    <button type="button" pButton label="Submit" class="button" (click)="onClick()"></button>
 
     <ng-template pTemplate="footer">
         <span class="p-float-label">
@@ -20,12 +19,22 @@
 <!-- *ngFor="let reservation of reservations" -->
 
 
-<p-card *ngIf="shown">
-    <div *ngFor="let reservation of reservations ">
+<p-card *ngIf="shown" class="id-search">
+    <div>
         <h2>User ID: {{reservation.user}}</h2>
         <p><strong>License:</strong> {{reservation.car}}</p>
         <p><strong>Reservation Start Date:</strong> {{reservation.rStart}}</p>
         <p><strong>Reservation End Date:</strong> {{reservation.rEnd}}</p>
+    </div>
+
+</p-card>
+<!-- *ngFor="let reservation of reservations " -->
+<p-card class="email-search"  *ngFor="let emailed of reservations " >
+    <div>
+        <h2>User ID: {{emailed.user}}</h2>
+        <p><strong>License:</strong> {{emailed.car}}</p>
+        <p><strong>Reservation Start Date:</strong> {{emailed.rStart}}</p>
+        <p><strong>Reservation End Date:</strong> {{emailed.rEnd}}</p>
     </div>
 
 </p-card>

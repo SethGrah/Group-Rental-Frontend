@@ -1,0 +1,10 @@
+.p-element{
+    display: flex;
+   width: 700px;
+}
+.p-component{
+    padding: 16px;
+}
+.id-search{
+    padding-top:16px;
+}

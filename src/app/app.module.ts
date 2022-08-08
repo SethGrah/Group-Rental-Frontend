@@ -3,13 +3,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { FindAvailableCarsComponent } from './find-available-cars/find-available-cars.component';
+
 import {CardModule} from 'primeng/card';
 import { HttpClientModule } from '@angular/common/http';
 import {AccordionModule} from 'primeng/accordion';     //accordion and accordion tab
 import {MenuItem} from 'primeng/api';      
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import {ButtonModule} from 'primeng/button';
+import {MessagesModule} from 'primeng/messages';
+import {MessageModule} from 'primeng/message';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatToolbarModule} from '@angular/material/toolbar'
 import {TableModule} from 'primeng/table';
@@ -17,7 +19,7 @@ import {MatButtonModule} from '@angular/material/button'
 import {MatIconModule} from '@angular/material/icon'
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { Routes,RouterModule } from '@angular/router'
-import { SearchBarComponent } from './search-bar/search-bar.component';
+import { myModal, SearchBarComponent } from './search-bar/search-bar.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatCardModule} from '@angular/material/card';
@@ -32,22 +34,26 @@ import {CalendarModule} from 'primeng/calendar';
 import { UserRegistrationComponent } from './user-registration/user-registration.component';
 import { SearchYourReservationsComponent } from './search-your-reservations/search-your-reservations.component';
 import { DatePipe } from '@angular/common'
-const routes: Routes=[{path:'available-cars',component:FindAvailableCarsComponent},
+import {MatDialogModule} from '@angular/material/dialog';
+
+const routes: Routes=[
                       {path:'search-cars',component:SearchBarComponent},
                       {path:'homes',component:HomePageComponent},
                       {path:'create-user', component:UserRegistrationComponent},
-                      {path:'my-reservations',component:SearchYourReservationsComponent}];
+                      {path:'my-reservations',component:SearchYourReservationsComponent},
+                      {path:'',component:HomePageComponent}];
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    FindAvailableCarsComponent,
     SearchBarComponent,
     HomePageComponent,
     SidebarComponent,
     UserRegistrationComponent,
     SearchYourReservationsComponent,
+    myModal
+
   ],
   imports: [
     BrowserModule,
@@ -59,13 +65,22 @@ const routes: Routes=[{path:'available-cars',component:FindAvailableCarsComponen
     FlexLayoutModule,
     MatCardModule,
     MatFormFieldModule,
-    FormsModule,ReactiveFormsModule,
+    FormsModule,
+    ReactiveFormsModule,
     CheckboxModule,
-    AccordionModule,CardModule,
-    RouterModule.forRoot(routes),MatDatepickerModule,MatNativeDateModule,
+    AccordionModule,
+    CardModule,
+    RouterModule.forRoot(routes),
+    MatDatepickerModule,
+    MatNativeDateModule,
     CarouselModule,
     ImageModule,
-    InputTextModule,CalendarModule,HttpClientModule
+    InputTextModule,
+    CalendarModule
+    ,HttpClientModule,
+    MessageModule,
+    MessagesModule,
+    MatDialogModule
 
     
   ],

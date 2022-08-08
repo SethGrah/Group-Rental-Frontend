@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MessageService } from 'primeng/api';
 import { of } from 'rxjs';
 import { CarsApiService } from '../cars-api.service';
 import { reservation } from '../models/reservation';
@@ -14,49 +15,46 @@ export class SearchYourReservationsComponent implements OnInit {
   searchItem:any;
   searchItemEmail:any;
   //{rId:1,license:"AAA-111",uId:1,r_start:"",r_end:""}
-  reservations:reservation[]=[];
+  reservations:Array<any>=[];
   shown:boolean=false;
   reservation:any;
-  constructor(service:CarsApiService) {
+  //private messageService: MessageService
+  constructor(service:CarsApiService,) {
     this.service=service;
    }
 
   ngOnInit(): void {
   }
-  searchDbByEmail():void{
-    this.service.findMyReservationsByEmail(this.searchItem).subscribe(data=>{
-      this.reservation=data;
-    })
-  }
+  
   searchDbById():void{
-    this.service.findMyReservationsByUserId(this.searchItem).subscribe(data=>{
+    this.service.findMyReservationsByReservationId(this.searchItem).subscribe(data=>{
       console.log(data);
-      this.reservations =data;
+      this.reservation =data;
     })
   }
   isShown():void{
     this.shown=!this.shown;
   }
   onClick():void{
-    console.log("madeithere"+this.searchItem)
-    if(this.searchItem!="" && this.searchItem!=null){
-      this.service.findMyReservationsByUserId(this.searchItem).subscribe(data=>{
-        this.reservations=data;
-      });
+      console.log("made ids"+this.searchItemEmail)
+      if(this.searchItem==null||this.searchItem<=0){
+        // this.messageService.add
+      }
+      this.searchDbById();
+      if(this.reservation!=null|| this.reservation!=''){
       this.isShown();
+    }else{
     }
+
+  }
+  searchDbByEmail():void{
+    this.service.findMyReservationsByEmail(this.searchItemEmail).subscribe(data=>{
+      this.reservations=data;
+    })
   }
   onClickEmail():void{
-    console.log("madeithere"+this.searchItem)
-    if(this.searchItemEmail!="" && this.searchItemEmail!=null){
-    //   if(this.searchItem instanceof String){
-    //   this.searchDbByEmail();
-    //   this.isShown();}
-    // }else{
-      this.service.findMyReservationsByEmail({"email":this.searchDbByEmail}).subscribe(data=>{
-        this.reservations=data;
-      });
+    console.log("made emails"+this.searchItem)
+      this.searchDbByEmail();
       this.isShown();
-    }
   }
 }
