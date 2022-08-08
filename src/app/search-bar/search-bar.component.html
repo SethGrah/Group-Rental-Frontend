@@ -1,3 +1,5 @@
+<p-toast></p-toast>
+
 <div class="container">
     <mat-card class="mat-elevation-z4">
         <h1><strong>Search for available Vehicles</strong></h1>
@@ -37,7 +39,7 @@
 
 <div *ngIf="shown">
 
-    <mat-card class="contain" *ngFor="let searched of availCars">
+    <mat-card class="contain" style="margin-bottom:16px" *ngFor="let searched of availCars">
         <div class="item">
             <h1 style="text-transform:uppercase;"><strong>{{searched.make}}</strong></h1>
             <h1 style="text-transform:uppercase;"><strong>{{searched.model}}</strong></h1>
@@ -55,4 +57,5 @@
     
         <p-button label="Reserve" (click)="this.selectedCar=searched;openDialog()"></p-button>
     </mat-card>
+    <div> </div>>
 </div>

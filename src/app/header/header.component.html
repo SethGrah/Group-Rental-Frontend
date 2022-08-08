@@ -1,4 +1,4 @@
-<mat-toolbar color ="primary">
+<mat-toolbar color ="accent">
     <mat-toolbar-row fxLayoutAlign="start center">
         <div fxLayout = "row">
             <a href="/homes" routerLinkActive="active" ariaCurrentWhenActive="page">
@@ -11,8 +11,10 @@
             </a>
             <div *ngIf ="!deviceXs">
                 <!-- Routing, when you click them, open the other component -->
+                
                 <a routerLink="/search-cars" routerLinkActive="active" ariaCurrentWhenActive="page"><button mat-button ><mat-icon>add</mat-icon>  <span>Make a reservation</span></button></a>
-                <a routerLink="/my-reservations" routerLinkActive="active" ariaCurrentWhenActive="page"><button mat-button ><mat-icon>question</mat-icon>  <span>Search for a Reservation</span></button></a>
+                
+                <a routerLink="/my-reservations" routerLinkActive="active" ariaCurrentWhenActive="page"><button mat-button ><mat-icon>search</mat-icon>  <span>Search for a Reservation</span></button></a>
                 
                 
             </div>

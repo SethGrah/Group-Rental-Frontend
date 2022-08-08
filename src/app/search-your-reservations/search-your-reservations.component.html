@@ -3,14 +3,14 @@
         <h1 style="font-size:xx-large ; padding-top:16px; padding-left:16px;"><strong>Search for your reservation!</strong></h1>
     </ng-template>
     <span class="p-float-label">
-        <input type="text" id="inputtext" pInputText [(ngModel)]="searchItem">
+        <input type="text" id="inputtext" pInputText [(ngModel)]="searchItem" #idForm>
         <label for="inputtext">Reservation ID</label>
     </span>
-    <button type="button" pButton label="Submit" class="button" (click)="onClick()"></button>
+    <button type="button" pButton label="Submit" class="button" (click)="onClick();idForm"></button>
 
     <ng-template pTemplate="footer">
         <span class="p-float-label">
-            <input type="text" id="inputtext" pInputText [(ngModel)]="searchItemEmail">
+            <input type="text" id="inputtext" pInputText [(ngModel)]="searchItemEmail" #emailForm>
             <label for="inputtext">Email</label>
         </span>
         <button type="button" pButton label="Submit" class="button" (click)="onClickEmail()"></button>
@@ -25,16 +25,21 @@
         <p><strong>License:</strong> {{reservation.car}}</p>
         <p><strong>Reservation Start Date:</strong> {{reservation.rStart}}</p>
         <p><strong>Reservation End Date:</strong> {{reservation.rEnd}}</p>
+        <p-button (click)="onDelete(reservation.rId)">Delete?</p-button>
+        <a  routerLink="/update-reservation" routerLinkActive="active" ariaCurrentWhenActive="page" [queryParams]="{ resId: reservation.rId }"> <p-button >Update?</p-button></a>  
     </div>
 
 </p-card>
 <!-- *ngFor="let reservation of reservations " -->
 <p-card class="email-search"  *ngFor="let emailed of reservations " >
     <div>
+        
         <h2>User ID: {{emailed.user}}</h2>
         <p><strong>License:</strong> {{emailed.car}}</p>
         <p><strong>Reservation Start Date:</strong> {{emailed.rStart}}</p>
         <p><strong>Reservation End Date:</strong> {{emailed.rEnd}}</p>
+        <p-button (click)="onDelete(emailed.rId)">Delete?</p-button>
+        <a  routerLink="/update-reservation" routerLinkActive="active" ariaCurrentWhenActive="page" [queryParams]="{ resId: emailed.rId }"> <p-button >Update?</p-button></a>  
     </div>
 
 </p-card>

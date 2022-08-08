@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { of } from 'rxjs';
 import { CarsApiService } from '../cars-api.service';
@@ -19,7 +20,7 @@ export class SearchYourReservationsComponent implements OnInit {
   shown:boolean=false;
   reservation:any;
   //private messageService: MessageService
-  constructor(service:CarsApiService,) {
+  constructor(service:CarsApiService,private router:Router) {
     this.service=service;
    }
 
@@ -28,7 +29,7 @@ export class SearchYourReservationsComponent implements OnInit {
   
   searchDbById():void{
     this.service.findMyReservationsByReservationId(this.searchItem).subscribe(data=>{
-      console.log(data);
+      console.log(data.rId);
       this.reservation =data;
     })
   }
@@ -56,5 +57,10 @@ export class SearchYourReservationsComponent implements OnInit {
     console.log("made emails"+this.searchItem)
       this.searchDbByEmail();
       this.isShown();
+  }
+  onDelete(givenId:number):void{
+    console.log("made it to delete");
+    this.service.deleteReservation(givenId).subscribe(data=>console.log(data));
+    this.ngOnInit();
   }
 }

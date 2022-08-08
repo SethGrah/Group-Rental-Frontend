@@ -7,7 +7,7 @@ import { HeaderComponent } from './header/header.component';
 import {CardModule} from 'primeng/card';
 import { HttpClientModule } from '@angular/common/http';
 import {AccordionModule} from 'primeng/accordion';     //accordion and accordion tab
-import {MenuItem} from 'primeng/api';      
+import {MenuItem, MessageService} from 'primeng/api';      
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import {ButtonModule} from 'primeng/button';
 import {MessagesModule} from 'primeng/messages';
@@ -35,13 +35,18 @@ import { UserRegistrationComponent } from './user-registration/user-registration
 import { SearchYourReservationsComponent } from './search-your-reservations/search-your-reservations.component';
 import { DatePipe } from '@angular/common'
 import {MatDialogModule} from '@angular/material/dialog';
-
+import { UpdateReservationComponent } from './update-reservation/update-reservation.component';
+import {ToastModule} from 'primeng/toast';
+import { ToastrModule,ToastNoAnimationModule } from 'ngx-toastr';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatListModule} from '@angular/material/list'
 const routes: Routes=[
                       {path:'search-cars',component:SearchBarComponent},
                       {path:'homes',component:HomePageComponent},
                       {path:'create-user', component:UserRegistrationComponent},
                       {path:'my-reservations',component:SearchYourReservationsComponent},
-                      {path:'',component:HomePageComponent}];
+                      {path:'',component:HomePageComponent},
+                      {path:'update-reservation',component:UpdateReservationComponent}];
 
 @NgModule({
   declarations: [
@@ -52,7 +57,8 @@ const routes: Routes=[
     SidebarComponent,
     UserRegistrationComponent,
     SearchYourReservationsComponent,
-    myModal
+    myModal,
+    UpdateReservationComponent
 
   ],
   imports: [
@@ -80,11 +86,12 @@ const routes: Routes=[
     ,HttpClientModule,
     MessageModule,
     MessagesModule,
-    MatDialogModule
+    MatDialogModule,
+    ToastModule,ToastNoAnimationModule.forRoot(),MatDividerModule,MatListModule
 
     
   ],
-  providers: [DatePipe],
+  providers: [DatePipe,MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

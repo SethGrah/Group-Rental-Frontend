@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MediaChange, MediaObserver } from '@angular/flex-layout';
 import { Subscription } from 'rxjs';
-
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -26,4 +26,7 @@ export class AppComponent implements OnInit,OnDestroy {
   ngOnDestroy(): void {
     this.mediaSub.unsubscribe();
   }
+
+  //message functions
+
 }
