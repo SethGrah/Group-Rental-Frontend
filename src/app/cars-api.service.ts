@@ -34,7 +34,7 @@ export class CarsApiService {
     return this.http.delete(environment.apiUrl+id);
   }
   saveNewUser(user: any): Observable<any> {
-    return this.http.post(environment.apiUrl, user);
+    return this.http.post(environment.apiUrl+"users/", user);
   }
   //delete user?
 }

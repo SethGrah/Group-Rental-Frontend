@@ -22,6 +22,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input'
 import { HomePageComponent } from './home-page/home-page.component';
 import {CheckboxModule} from 'primeng/checkbox';
 import { SidebarComponent } from './sidebar/sidebar.component';
@@ -30,6 +31,7 @@ import {ImageModule} from 'primeng/image';
 import {InputTextModule} from 'primeng/inputtext';
 import {CalendarModule} from 'primeng/calendar';
 import { UserRegistrationComponent } from './user-registration/user-registration.component';
+import { DatePipe } from '@angular/common';
 const routes: Routes=[{path:'available-cars',component:FindAvailableCarsComponent},
                       {path:'search-cars',component:SearchBarComponent},
                       {path:'homes',component:HomePageComponent},
@@ -55,6 +57,7 @@ const routes: Routes=[{path:'available-cars',component:FindAvailableCarsComponen
     FlexLayoutModule,
     MatCardModule,
     MatFormFieldModule,
+    MatInputModule,
     FormsModule,ReactiveFormsModule,
     CheckboxModule,
     AccordionModule,CardModule,
@@ -65,7 +68,7 @@ const routes: Routes=[{path:'available-cars',component:FindAvailableCarsComponen
 
     
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
