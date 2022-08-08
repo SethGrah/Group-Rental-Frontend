@@ -1,0 +1,19 @@
+<p-card class="email-search"  >
+    <div>
+        <form (ngSubmit)="onSubmit()" id="updates">
+        <h2>User ID: {{resUpdate.user}}</h2>
+        <p><strong>License:</strong> {{resUpdate.car}}</p>
+            <p><strong>Reservation Start Date:</strong> <label>{{resUpdate.rStart}}</label><br>
+            <input type="date" class="form-control" min="{{date| date:'yyyy-MM-dd'}}" required name="start-date"[(ngModel)]="resUpdate.rStart" pInputText>
+            </p>
+        <p><strong>Reservation End Date: </strong> <label>{{resUpdate.rEnd}}</label> </p>
+            <input type="date" class="form-control" required name="end-date"[(ngModel)]="resUpdate.rEnd" pInputText>
+        <br>
+       
+
+        <p-button (click)="onSubmit()" >Update?</p-button>
+    </form>
+    </div>
+
+</p-card>
+<!-- need to do mat range again -->

@@ -2,11 +2,11 @@ export class user {
     uID: number;
     name: String;
     phone: number;
-    dob: Date;
+    dob: String | null;
     email: String;
 
     constructor(uID: number, name: String, phone: number,
-        dob: Date, email: String) {
+        dob: String, email: String) {
             this.uID = uID;
             this.name = name;
             this.phone = phone;

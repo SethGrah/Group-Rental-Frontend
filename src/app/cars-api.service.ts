@@ -15,23 +15,36 @@ export class CarsApiService {
    findAllCars() :Observable<any>{
     return this.http.get(environment.apiUrl+"cars");
   }
-  findCarByCapacity(capacity:number):Observable<any>{
-    return this.http.get(environment.apiUrl + capacity);
-  }
-  findCarByLicence(license:string):Observable<any>{
-    return this.http.get(environment.apiUrl + license);
+  // findCarByCapacity(capacity:number):Observable<any>{
+  //   return this.http.get(environment.apiUrl + capacity);
+  // }
+  // findCarByLicence(license:string):Observable<any>{
+  //   return this.http.get(environment.apiUrl + license);
+  // }
+  findUserByEmail(email:string):Observable<any>{
+    return this.http.get(environment.apiUrl+"users/email/"+email)
   }
   findAvailableReservations(search:any): Observable<any>{
-    return this.http.get(environment.apiUrl,search);
+    console.log(search);
+    return this.http.get(environment.apiUrl+"reservations/cars/"+search.capacity+"/"+search.startDate+"/"+search.endDate);
+  }
+  findMyReservationsByEmail(email:string):Observable<any>{
+    return this.http.get(environment.apiUrl+"reservations/user/"+email)
+  }
+  findMyReservationsByReservationId(id:number):Observable<any>{
+    return this.http.get(environment.apiUrl+"reservations/"+id)
   }
   saveNewReservation(reservation:any):Observable<any>{
-    return this.http.post(environment.apiUrl,reservation);
+    return this.http.post(environment.apiUrl+"reservations",reservation);
   }
-  updateReservation(reservation:any,resId:number):Observable<any>{
-    return this.http.put(environment.apiUrl+resId,reservation)
+  updateReservation(reservation:any,):Observable<any>{
+    return this.http.put(environment.apiUrl+"reservations/",reservation)
   }
   deleteReservation(id:number):Observable<any>{
-    return this.http.delete(environment.apiUrl+id);
+    return this.http.delete(environment.apiUrl+"reservations/"+id);
+  }
+  saveNewUser(user: any): Observable<any> {
+    return this.http.post(environment.apiUrl+"users/", user);
   }
   //delete user?
 }

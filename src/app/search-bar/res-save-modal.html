@@ -1,0 +1,15 @@
+<h1 mat-dialog-title>Please confirm the information below</h1>
+<div mat-dialog-content>
+  <div><h2><strong>Email:</strong></h2><input matInput type="string"  [(ngModel)]=data.email>
+    </div>
+
+
+  <div><h2><strong>License</strong></h2>{{data.car.license}}</div>
+  <div><h2><strong>Reservation Start:</strong></h2>{{data.rStart}}</div>
+  <div><h2><strong>Reservation End: </strong></h2>{{data.rEnd}}</div>
+</div>
+<div mat-dialog-actions>
+  <p-button  (click)="onNoClick()">No Thanks</p-button>
+  <p-button mat-dialog-close (click)="onSave()">Save Reservation!</p-button>
+</div>
+<!-- [mat-dialog-close]="data.something" -->

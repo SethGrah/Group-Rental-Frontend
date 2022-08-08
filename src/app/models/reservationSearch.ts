@@ -1,11 +1,12 @@
+
 export class reservationSearch{
-    size:number;
-    startDate:Date;
-    endDate:Date;
-    constructor(   size:number,
-        startDate:Date,
-        endDate:Date,){
-            this.size=size;
+    capacity:number|null;
+    startDate:string|null;
+    endDate:string|null;
+    constructor(   capacity:number,
+        startDate:string,
+        endDate:string,){
+            this.capacity=capacity;
             this.startDate=startDate;
             this.endDate=endDate;
         }
