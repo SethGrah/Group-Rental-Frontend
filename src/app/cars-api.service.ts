@@ -43,5 +43,8 @@ export class CarsApiService {
   deleteReservation(id:number):Observable<any>{
     return this.http.delete(environment.apiUrl+"reservations/"+id);
   }
+  saveNewUser(user: any): Observable<any> {
+    return this.http.post(environment.apiUrl+"users/", user);
+  }
   //delete user?
 }

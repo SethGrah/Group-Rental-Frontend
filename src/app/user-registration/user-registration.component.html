@@ -1,27 +1,51 @@
 <mat-card class="new-user" fxLayoutAlign="center center">
     <mat-card-content>
-        <form class="user-form" #createForm=ngForm (ngSubmit)="Submit()">
+        <form class="user-form" [formGroup]="userForm" novalidate>
             <mat-card-title>Create an account</mat-card-title>
             <mat-form-field appearance="fill">
                 <mat-label>Name</mat-label>
-                <input type="text" matInput placeholder="Your Name" formGroupName="name">
+                <input matInput type="text" matInput placeholder="Your Name" formControlName ="name" required>
+                <!--<mat-error *ngIf="name.invalid">
+                    Please enter your name
+                </mat-error>-->
             </mat-form-field>
             <mat-form-field appearance="fill">
                 <mat-label>Phone</mat-label>
-                <input type="tel" matInput placeholder="123-456-7890" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" formGroupName="phone">
+                <input matInput type="tel" matInput placeholder="1234567890" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" formControlName="phone" required>
+                <!--<mat-error *ngIf="phone.invalid">
+                    Please enter a valid phone number
+                </mat-error>-->
             </mat-form-field>
             <mat-form-field appearance="fill">
                 <mat-label>Date of Birth</mat-label>
-                <input type="date" matInput formGroupName="dob">
+                <input matInput [matDatepicker]="dob" min='1900-01-01' max="{{minAge | date:'yyyy-MM-dd'}}" formControlName="dob">
+                <mat-datepicker-toggle matSuffix [for]="dob"></mat-datepicker-toggle>
+                <mat-datepicker #dob disabled="false"></mat-datepicker>
+
             </mat-form-field>
             <mat-form-field appearance="fill">
                 <mat-label>Email</mat-label>
+<<<<<<< HEAD
                 <input type="email" required pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$" class="form-control" matInput placeholder="scarter@skillstorm.com" formGroupName="email">
+=======
+                <input type="email" matInput placeholder="scarter@skillstorm.com" formControlName="email" required>
+                <!--<mat-error *ngIf="email.invalid">
+                    Please enter a valid email
+                </mat-error>-->
+>>>>>>> origin/mike-create-user
             </mat-form-field>
+            <mat-card-actions>
+                <button pButton type="submit" color="primary" [disabled]="!userForm.valid" (click)="Submit()">Submit</button>
+            </mat-card-actions>
         </form>
     </mat-card-content>
+<<<<<<< HEAD
     <mat-card-actions>
         <button mat-raised-button type="submit" color="primary">Submit</button>
     </mat-card-actions>
 </mat-card>
 <!-- "^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$" -->
+=======
+    
+</mat-card>
+>>>>>>> origin/mike-create-user

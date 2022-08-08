@@ -24,6 +24,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input'
 import { HomePageComponent } from './home-page/home-page.component';
 import {CheckboxModule} from 'primeng/checkbox';
 import { SidebarComponent } from './sidebar/sidebar.component';
@@ -71,8 +72,8 @@ const routes: Routes=[
     FlexLayoutModule,
     MatCardModule,
     MatFormFieldModule,
-    FormsModule,
-    ReactiveFormsModule,
+    MatInputModule,
+    FormsModule,ReactiveFormsModule,
     CheckboxModule,
     AccordionModule,
     CardModule,
