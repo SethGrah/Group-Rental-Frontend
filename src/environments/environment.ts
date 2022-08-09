@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:8080/'
+  apiUrl: 'http://team11rentalbackend-env.eba-c343hbjn.us-east-1.elasticbeanstalk.com/'
 };
 
 /*
@@ -14,4 +14,4 @@ export const environment = {
  * This import should be commented out in production mode because it will have a negative impact
  * on performance if an error is thrown.
  */
-// import 'zone.js/plugins/zone-error';  // Included with Angular CLI.
+//  team11-car-db.c4eqo06kg56i.us-east-1.rds.amazonaws.com
