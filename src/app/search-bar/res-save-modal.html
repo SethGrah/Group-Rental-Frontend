@@ -1,6 +1,15 @@
+
+<style>
+  
+  body {background-color: powderblue;}
+  h1   {color: blue;}
+  p    {color: rgb(0, 81, 255);}
+  </style>
+
+<div style="width:500px">
 <h1 mat-dialog-title>Please confirm the information below</h1>
 <div mat-dialog-content>
-  <div><h2><strong>Email:</strong></h2><input matInput type="string"  [(ngModel)]=data.email>
+  <div><h2><strong>Email:</strong></h2><input matInput style="border:solid" type="string" class="modalEmail"  [(ngModel)]=data.email>
     </div>
 
 
@@ -11,5 +20,6 @@
 <div mat-dialog-actions>
   <p-button  (click)="onNoClick()">No Thanks</p-button>
   <p-button mat-dialog-close (click)="onSave()">Save Reservation!</p-button>
+</div>
 </div>
 <!-- [mat-dialog-close]="data.something" -->

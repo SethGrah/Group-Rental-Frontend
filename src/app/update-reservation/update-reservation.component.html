@@ -1,19 +1,51 @@
 <p-card class="email-search"  >
     <div>
-        <form (ngSubmit)="onSubmit()" id="updates">
+        <form [formGroup]="resUpdateForm" (ngSubmit)="onSubmit()" id="updates">
         <h2>User ID: {{resUpdate.user}}</h2>
         <p><strong>License:</strong> {{resUpdate.car}}</p>
-            <p><strong>Reservation Start Date:</strong> <label>{{resUpdate.rStart}}</label><br>
-            <input type="date" class="form-control" min="{{date| date:'yyyy-MM-dd'}}" required name="start-date"[(ngModel)]="resUpdate.rStart" pInputText>
-            </p>
+           
+        <h2>Previous Dates:</h2>
+        <p><strong>Reservation Start Date: </strong> <label>{{resUpdate.rStart}}</label> </p>
         <p><strong>Reservation End Date: </strong> <label>{{resUpdate.rEnd}}</label> </p>
-            <input type="date" class="form-control" required name="end-date"[(ngModel)]="resUpdate.rEnd" pInputText>
-        <br>
-       
 
+<mat-form-field>
+    <div id="date">
+        <mat-date-range-input [rangePicker]="picker" [min]="minDate">
+            <input matStartDate placeholder="Start date" name="startDate" formControlName="startDate">
+            <input matEndDate placeholder="End date" name="endDate" formControlName="endDate">
+        </mat-date-range-input>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-date-range-picker #picker></mat-date-range-picker>
+        <mat-error *ngIf="resUpdateForm.hasError('matDatepickerParse')">
+            "{{resUpdateForm.getError('matDatepickerParse').text}}"
+            is not a valid date!
+        </mat-error>
+        <mat-error *ngIf="resUpdateForm.hasError('matDatepickerMin')">
+            Minimum date should be {{minDate | date }}</mat-error>
+    </div>
+</mat-form-field>
         <p-button (click)="onSubmit()" >Update?</p-button>
     </form>
     </div>
-
+    
 </p-card>
-<!-- need to do mat range again -->
+<!-- need to do mat range again 
+
+<mat-form-field>
+                    <div id="date">
+                        <mat-date-range-input [rangePicker]="picker" [min]="minDate">
+                            <input matStartDate placeholder="Start date" name="startDate" formControlName="startDate">
+                            <input matEndDate placeholder="End date" name="endDate" formControlName="endDate">
+                        </mat-date-range-input>
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-date-range-picker #picker></mat-date-range-picker>
+                        <mat-error *ngIf="reservationSearchForm.hasError('matDatepickerParse')">
+                            "{{reservationSearchForm.getError('matDatepickerParse').text}}"
+                            is not a valid date!
+                        </mat-error>
+                        <mat-error *ngIf="reservationSearchForm.hasError('matDatepickerMin')">
+                            Minimum date should be {{minDate | date }}</mat-error>
+                    </div>
+                </mat-form-field>
+
+-->

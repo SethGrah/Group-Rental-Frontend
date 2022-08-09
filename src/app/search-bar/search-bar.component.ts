@@ -70,7 +70,7 @@ export class SearchBarComponent implements OnInit {
   openDialog(): void {
     console.log(this.selectedCar)
     const dialogRef = this.dialog.open(myModal, {
-      width: '250px',
+      width: '600px',
       data: { car: this.selectedCar, email: '', rStart: this.search.startDate, rEnd: this.search.endDate }
     });
 
@@ -123,7 +123,7 @@ export class myModal {
        
       }
       else {
-        this.showError();
+        console.log('user is null');
       }
     }, 2000);
 

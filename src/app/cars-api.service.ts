@@ -15,12 +15,7 @@ export class CarsApiService {
    findAllCars() :Observable<any>{
     return this.http.get(environment.apiUrl+"cars");
   }
-  // findCarByCapacity(capacity:number):Observable<any>{
-  //   return this.http.get(environment.apiUrl + capacity);
-  // }
-  // findCarByLicence(license:string):Observable<any>{
-  //   return this.http.get(environment.apiUrl + license);
-  // }
+
   findUserByEmail(email:string):Observable<any>{
     return this.http.get(environment.apiUrl+"users/email/"+email)
   }
@@ -38,7 +33,7 @@ export class CarsApiService {
     return this.http.post(environment.apiUrl+"reservations",reservation);
   }
   updateReservation(reservation:any,):Observable<any>{
-    return this.http.put(environment.apiUrl+"reservations/",reservation)
+    return this.http.put(environment.apiUrl+"reservations",reservation)
   }
   deleteReservation(id:number):Observable<any>{
     return this.http.delete(environment.apiUrl+"reservations/"+id);

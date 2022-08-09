@@ -28,24 +28,21 @@
 
                 <input type="email" required pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$" class="form-control" matInput placeholder="scarter@skillstorm.com" formGroupName="email">
 
-                <input type="email" matInput placeholder="scarter@skillstorm.com" formControlName="email" required>
+   
                 <!--<mat-error *ngIf="email.invalid">
                     Please enter a valid email
                 </mat-error>-->
 
             </mat-form-field>
             <mat-card-actions>
-                <button pButton type="submit" color="primary" [disabled]="!userForm.valid" (click)="Submit()">Submit</button>
+                <button pButton type="submit" color="primary" (click)="Submit()">Submit</button>
             </mat-card-actions>
         </form>
     </mat-card-content>
 
-    <mat-card-actions>
-        <button mat-raised-button type="submit" color="primary">Submit</button>
-    </mat-card-actions>
+
 </mat-card>
 <!-- "^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$" -->
 
     
-</mat-card>
 

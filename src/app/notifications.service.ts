@@ -10,6 +10,6 @@ export class NotificationsService {
     this.toastr.success(message, title)
 }
   showError(message:string, title:string){
-  this.toastr.success(message, title)
+  this.toastr.error(message, title)
 }
 }
