@@ -4,7 +4,9 @@
 
 export const environment = {
   production: false,
+
   apiUrl: 'http://team11rentalbackend-env.eba-c343hbjn.us-east-1.elasticbeanstalk.com/'
+
 };
 
 /*
