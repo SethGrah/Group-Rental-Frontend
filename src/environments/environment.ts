@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:8080/'
+  apiUrl: 'http://team11-car-db.c4eqo06kg56i.us-east-1.rds.amazonaws.com'
 };
 
 /*
