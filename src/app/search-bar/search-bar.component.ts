@@ -45,6 +45,7 @@ export class SearchBarComponent implements OnInit {
   ngOnInit(): void {
 
   }
+/* Calling the onSearch function, which is calling the service to find available reservations. */
   async onSubmit(): Promise<void> {
 
     this.search.capacity = this.reservationSearchForm.controls.capacity.value;
@@ -67,6 +68,9 @@ export class SearchBarComponent implements OnInit {
 
 
 
+/**
+ * The function opens a dialog box, and passes the selectedCar object to the dialog box.
+ */
   openDialog(): void {
     console.log(this.selectedCar)
     const dialogRef = this.dialog.open(myModal, {
@@ -128,6 +132,7 @@ export class myModal {
     }, 2000);
 
   }
+/* Calling the service to find the user by email and then if a user is found, saving the reservation. */
   async findEmail() {
     this.service.findUserByEmail(this.data.email).subscribe(data => {
       console.log(data);

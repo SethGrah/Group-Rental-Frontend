@@ -15,6 +15,7 @@ export class AppComponent implements OnInit,OnDestroy {
   deviceXs: boolean=false;
   constructor(public mediaObserver:MediaObserver){
   }
+/* Subscribing to the mediaObserver and checking if the device is xs or not. */
   ngOnInit(): void {
     this.mediaSub=this.mediaObserver.asObservable().subscribe(
       (result:MediaChange[])=>{

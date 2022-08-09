@@ -39,6 +39,12 @@ export class UserRegistrationComponent implements OnInit {
       email: new FormControl('', [Validators.required]),
     })
   }
+/**
+ * The function takes the form values and assigns them to a new user object, then sends the object to
+ * the server.
+ * 
+ *
+ */
 
   Submit(): void {
     console.log("min age: " + this.minAge);
@@ -46,11 +52,14 @@ export class UserRegistrationComponent implements OnInit {
     this.nUser.name = this.userForm.value.name;
     this.nUser.phone = this.userForm.value.phone;
     this.nUser.dob = this.datepipe.transform(this.userForm.value.dob, 'yyyyMMdd');
+    console.log(this.userForm.value.email);
     this.nUser.email = this.userForm.value.email;
+    console.log(this.nUser);
     this.service.saveNewUser(this.nUser).subscribe(data => {
       console.log(data)
+      this.notificationService.showSuccess("Your account has been saved.","Saved!")
     },(err)=>{this.notificationService.showError("Unable to save","Error")});
-    //console.log("New user " + this.userForm.value.name + " " + this.userForm.value.phone + " " + this.userForm.value.dob + " " + this.userForm.value.email)
+    console.log("New user " + this.userForm.value.name + " " + this.userForm.value.phone + " " + this.userForm.value.dob + " " + this.userForm.value.email)
   }
 
 }

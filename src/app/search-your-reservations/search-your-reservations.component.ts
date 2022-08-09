@@ -15,11 +15,11 @@ export class SearchYourReservationsComponent implements OnInit {
   service: CarsApiService;
   searchItem:any;
   searchItemEmail:any;
-  //{rId:1,license:"AAA-111",uId:1,r_start:"",r_end:""}
+
   reservations:Array<any>=[];
   shown:boolean=false;
   reservation:any;
-  //private messageService: MessageService
+
   constructor(service:CarsApiService,private router:Router) {
     this.service=service;
    }
@@ -36,28 +36,35 @@ export class SearchYourReservationsComponent implements OnInit {
   isShown():void{
     this.shown=!this.shown;
   }
+/**
+ * It's a function that is called when a button is clicked. It calls another function that searches the
+ * database for a reservation. If the reservation is found, it calls another function that shows the
+ * reservation.
+ */
   onClick():void{
       console.log("made ids"+this.searchItemEmail)
-      if(this.searchItem==null||this.searchItem<=0){
-        // this.messageService.add
-      }
       this.searchDbById();
       if(this.reservation!=null|| this.reservation!=''){
       this.isShown();
-    }else{
     }
-
   }
   searchDbByEmail():void{
     this.service.findMyReservationsByEmail(this.searchItemEmail).subscribe(data=>{
       this.reservations=data;
     })
   }
+/* A function that is called when the user clicks the button. It takes the value of the input field and
+calls the searchDbByEmail function. It then calls the isShown function. */
   onClickEmail():void{
     console.log("made emails"+this.searchItem)
       this.searchDbByEmail();
       this.isShown();
   }
+/**
+ * It takes in a givenId, calls the deleteReservation function in the service, and then calls ngOnInit
+ * to refresh the page.
+ * @param {number} givenId - number
+ */
   onDelete(givenId:number):void{
     console.log("made it to delete");
     this.service.deleteReservation(givenId).subscribe(data=>console.log(data));

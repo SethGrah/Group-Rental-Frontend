@@ -28,6 +28,9 @@ export class UpdateReservationComponent implements OnInit {
 
    }
 
+/**
+ * It takes the reservationId from the URL and uses it to find the reservation in the database.
+ */
   ngOnInit(): void {
     let date= new Date;
     this.route.queryParams.subscribe(params=>{
@@ -38,6 +41,10 @@ export class UpdateReservationComponent implements OnInit {
       
     })
   }
+/**
+ * The function takes the values from the form and puts them into a new object, then sends that object
+ * to the server.
+ */
   onSubmit():void{
     this.resSubmit.rId=this.resUpdate.rId;
     this.resSubmit.car=this.resUpdate.car;
