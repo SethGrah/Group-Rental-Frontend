@@ -36,7 +36,7 @@ export class UserRegistrationComponent implements OnInit {
       name: new FormControl('', [Validators.required]),
       phone: new FormControl('', [Validators.required]),
       dob: new FormControl('', [Validators.required]),
-      email: new FormControl('', [Validators.required]),
+      email: new FormControl('', [Validators.required,Validators.email]),
     })
   }
 /**
